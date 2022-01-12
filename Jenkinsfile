@@ -66,12 +66,12 @@ pipeline {
                         }
                     }
             steps {
-                echo "submit gcr.io/dtc-jan21-u113/[APPNAME]:v2.${env.BUILD_ID}"
-                sh "gcloud builds submit -t gcr.io/dtc-jan21-u113/[APPNAME]:v2.${env.BUILD_ID} ."
+                echo "submit gcr.io/dtc-jan21-u113/web-server-image:v2.${env.BUILD_ID}"
+                sh "gcloud builds submit -t gcr.io/dtc-jan21-u113/web-server-image:v2.${env.BUILD_ID} ."
                 echo 'Get cluster credentials'
                 sh 'gcloud container clusters get-credentials cnd-cluster --zone us-central1-c --project dtc-jan21-u113'
-                echo "Update the image to use gcr.io/dtc-jan21-u113/[APPNAME]:v2.${env.BUILD_ID}"
-                sh "kubectl set image deployment/demo-api demo-api=gcr.io/dtc-jan21-u113/[APPNAME]:v2.${env.BUILD_ID} --record"
+                echo "Update the image to use gcr.io/dtc-jan21-u113/web-server-image:v2.${env.BUILD_ID}"
+                sh "kubectl set image deployment/demo-api demo-api=gcr.io/dtc-jan21-u113/web-server-image:v2.${env.BUILD_ID} --record"
             }
         }            
     }
