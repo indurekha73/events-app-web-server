@@ -6,7 +6,7 @@
 //      https://github.com/indurekha73/events-app-web-server.git
 //      main
 //      dtc-jan21-u113
-//      api-server-image
+//      web-server-image
 //      cnd-cluster 
 //      us-central1-c
 //      the following values can be found in the yaml:
